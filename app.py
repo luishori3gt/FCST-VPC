@@ -729,7 +729,7 @@ with tab2:
             return ""
 
         styled = (df_a.style
-                  .applymap(color_pct, subset=["Δ %"])
+                  .map(color_pct, subset=["Δ %"])
                   .format({"Vol Base":"{:,.0f}","Vol Nuevo":"{:,.0f}",
                            "Δ Cajas":"{:+,.0f}","Δ %":"{:+.1f}%"}))
         st.dataframe(styled, use_container_width=True, height=420)
@@ -947,7 +947,7 @@ with tab5:
                 if val>=threshold:  return "background-color:#0a3d0a; color:#3fb950"
                 elif val<=-threshold: return "background-color:#3d0a0a; color:#f85149"
             return ""
-        st.dataframe(df_rank.style.applymap(color_rank,subset=["Δ %"])
+        st.dataframe(df_rank.style.map(color_rank,subset=["Δ %"])
                      .format({"Δ %":"{:+.1f}%","Δ Cajas":"{:+,.0f}"}),
                      use_container_width=True,height=300)
 
